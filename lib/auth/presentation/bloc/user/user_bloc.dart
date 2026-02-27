@@ -48,7 +48,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
     result.fold(
       (l) => emit(UserError(message: l.toString())),
-      (users) => UserList(users: users),
+      (users) => emit(UserList(users: users)),
     );
   }
 
@@ -60,7 +60,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
     result.fold(
       (l) => emit(UserError(message: l.toString())),
-      (_) => UpdatedUser(),
+      (_) => emit(UpdatedUser()),
     );
   }
 }

@@ -17,7 +17,13 @@ class UserRemoteDatasource implements IUserRemoteDatasource {
 
   @override
   Future<List<UserModel>> getAllUsers() async {
-    return [UserModel(id: 'id', name: 'name', email: 'email')];
+    await Future.delayed(const Duration(seconds: 2));
+
+    throw Exception('Erro ao buscar usuários');
+    // return [
+    //   UserModel(id: 'id', name: 'name', email: 'email'),
+    //   UserModel(id: 'id', name: 'Joao', email: 'joao@gmail.com'),
+    // ];
   }
 
   @override
